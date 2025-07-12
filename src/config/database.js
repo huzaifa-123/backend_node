@@ -4,11 +4,11 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const sequelize = new Sequelize(
-  process.env.DB_NAME || "dizesiBlog",
-  process.env.DB_USER || "root",
-  process.env.DB_PASSWORD || "root",
+  process.env.DB_NAME || "sql12789615",
+  process.env.DB_USER || "sql12789615",
+  process.env.DB_PASSWORD || "flTGHndkAp",
   {
-    host: process.env.DB_HOST || "127.0.0.1",
+    host: process.env.DB_HOST || "sql12.freesqldatabase.com",
     port: process.env.DB_PORT || 3306,
     dialect: "mysql",
     logging: false,
