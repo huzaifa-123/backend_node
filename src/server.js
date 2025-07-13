@@ -15,7 +15,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:8080",
-    "https://dizesi-frontend.vercel.app",
+    "https://www.dizesi.com/",
     "https://dizesi-backend.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
