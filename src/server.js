@@ -16,7 +16,7 @@ const corsOptions = {
   origin: [
     "http://localhost:8080",
     "https://www.dizesi.com",
-    "https://dizesi-backend.onrender.com/api"
+    "https://dizesi-backend.onrender.com"
   ],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
