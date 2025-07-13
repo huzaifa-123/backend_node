@@ -15,7 +15,7 @@ const app = express();
 const corsOptions = {
   origin: [
     "http://localhost:8080",
-    "https://www.dizesi.com/",
+    "https://www.dizesi.com",
     "https://dizesi-backend.onrender.com/api"
   ],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
