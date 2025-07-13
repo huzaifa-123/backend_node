@@ -72,7 +72,7 @@ dotenv.config();
 const app = express();
 
 const corsOptions = {
-  origin: ["http://localhost:8080", "http://localhost:3000", "https://dizesi-frontend.vercel.app"], // add live frontend too
+  origin: ["http://localhost:8080", "https://756f0a06f597.ngrok-free.app/", "https://dizesi-frontend.vercel.app", "https://dizesi-backend.vercel.app"], // add live frontend too
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true,
