@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import Post from "../models/Post.js";
 import multer from "multer";
+import Follow from "../models/Follow.js";
 
 const upload = multer();
 
@@ -137,7 +138,18 @@ export const getProfile = async (req, res) => {
       order: [['created_at', 'DESC']]
     });
 
-    res.json({ user, posts });
+    // Add followersCount and followingCount
+    const [followersCount, followingCount] = await Promise.all([
+      Follow.count({ where: { following_id: user.id } }),
+      Follow.count({ where: { follower_id: user.id } }),
+    ]);
+    const userWithCounts = {
+      ...user.get({ plain: true }),
+      followersCount,
+      followingCount
+    };
+
+    res.json({ user: userWithCounts, posts });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });

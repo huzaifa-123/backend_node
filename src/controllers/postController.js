@@ -56,8 +56,13 @@ export const listPosts = async (req, res) => {
     if (req.user) {
       for (const post of posts) {
         if (post.user) {
-          console.log('Post user.id:', post.user.id, 'isFollowing:', followingIds.includes(post.user.id));
           post.user.setDataValue('isFollowing', followingIds.includes(post.user.id));
+        }
+      }
+    } else {
+      for (const post of posts) {
+        if (post.user) {
+          post.user.setDataValue('isFollowing', false);
         }
       }
     }
