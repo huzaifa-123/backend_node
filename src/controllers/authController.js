@@ -68,7 +68,6 @@ export const login = async (req, res) => {
 
     // Allow login with either username OR email
     const whereClause = username.includes("@") ? { email: username } : { username };
-    console.log("Looking for user with:", whereClause);
     
     const user = await User.findOne({ where: whereClause });
     if (!user) {
@@ -121,12 +120,10 @@ export const checkUsername = async (req, res) => {
 export const getProfile = async (req, res) => {
   try {
     const { username } = req.params;
-       console.log("Looking up user:", username);
        const user = await User.findOne({
          where: { username },
          attributes: { exclude: ['password_hash'] }
        });
-       console.log("User found:", user);
        if (!user) {
          return res.status(404).json({ message: "User not found" });
        }

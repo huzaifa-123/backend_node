@@ -21,8 +21,7 @@ export const listPosts = async (req, res) => {
         attributes: ["following_id"],
       });
       followingIds = rows.map((r) => r.following_id);
-      console.log('req.user.id:', req.user.id);
-      console.log('followingIds:', followingIds);
+
     }
 
     if (feed === "following") {
@@ -56,7 +55,9 @@ export const listPosts = async (req, res) => {
     if (req.user) {
       for (const post of posts) {
         if (post.user) {
-          post.user.setDataValue('isFollowing', followingIds.includes(post.user.id));
+          const isFollowing = followingIds.includes(post.user.id);
+          console.log(`Post user.id: ${post.user.id}, isFollowing: ${isFollowing}`);
+          post.user.setDataValue('isFollowing', isFollowing);
         }
       }
     } else {
